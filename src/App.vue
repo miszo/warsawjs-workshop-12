@@ -3,7 +3,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
       <h2>{{ title }}</h2>
     </nav>
-    <router-view/>
+    <transition name="fade" mode="out-in" appear>
+      <router-view/>
+    </transition>
   </div>
 </template>
 
