@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="row">
-      <router-link class="btn btn-light" to="/">Powrót do strony głównej</router-link>
+      <router-link class="btn btn-link" to="/">Powrót do strony głównej</router-link>
     </div>
   </div>
 </template>
@@ -86,7 +86,6 @@
     },
 
     created() {
-      console.log('potato');
       this.questions = randomElement(this.$root.quizzes).questions;
     }
   };
@@ -95,8 +94,5 @@
 <style lang="scss" scoped>
   .container, .row {
     margin-top: 15px;
-  }
-  .row {
-    justify-content: center;
   }
 </style>
