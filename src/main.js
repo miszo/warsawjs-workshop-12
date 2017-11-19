@@ -1,8 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
-import './helpers';
+
+import quizzes from './quizzes.json';
+import router from './router';
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  router,
+  render: h => h(App),
+  data: {
+    quizzes: quizzes.quizzes
+  }
 });

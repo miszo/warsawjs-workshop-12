@@ -1,33 +1,29 @@
 <template>
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
-      <h2>{{ msg }}</h2>
+      <h2>{{ title }}</h2>
     </nav>
-    <div>
-      <quiz v-bind:quizzes="quizzes"/>
-    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import Quiz from './components/Quiz';
-  import quizzes from './quizzes.json';
+
 
   export default {
     name: 'app',
-    components: {
-      Quiz
-    },
     data () {
       return {
-        msg: 'warsawjs-workshop-12-questions',
-        quizzes: quizzes.quizzes
+        title: 'warsawjs-workshop-12-questions',
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  nav {
+    margin-bottom: 15px;
+  }
   .navbar-expand-lg {
     justify-content: center;
   }
