@@ -15,7 +15,7 @@
             <div class="form-group row">
               <div class="col" v-for="(answer, index) in question.answers">
                 <input type="text" class="form-control"
-                       v-bind:placeholder="`Odpowiedź ${String.fromCharCode(65 + index)}`"
+                       v-bind:placeholder="`Odpowiedź ${numberToLetter(index)}`"
                        v-model="question.answers[index]">
               </div>
             </div>

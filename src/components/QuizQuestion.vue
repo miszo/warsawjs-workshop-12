@@ -7,7 +7,7 @@
       <div class="card-text answers row">
         <button v-for="(answer, index) in question.answers" class="btn btn-block btn-outline-primary text-left"
                 v-on:click="checkAnswer(index)">
-          <span class="font-weight-bold">{{ String.fromCharCode(65 + index) }}.</span> {{ answer }}
+          <span class="font-weight-bold">{{ numberToLetter(index) }}.</span> {{ answer }}
         </button>
       </div>
     </div>
