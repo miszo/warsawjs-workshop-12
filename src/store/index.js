@@ -13,6 +13,6 @@ export default new Vuex.Store({
   mutations: {
     addQuiz(state, quiz) {
       return state.quizzes.push(quiz);
-    },
-  },
+    }
+  }
 });
