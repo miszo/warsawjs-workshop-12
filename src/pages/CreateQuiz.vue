@@ -20,8 +20,11 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="number" class="form-control" placeholder="Prawidłowa odpowiedź"
-                     v-model="question.correctAnswerIndex">
+
+              <select class="form-control" v-model.number="question.correctAnswerIndex">
+                <option value="" disabled selected>Wybierz poprawną odpowiedź</option>
+                <option v-bind:value="index" v-for="(answer, index) in question.answers" v-text="answer"></option>
+              </select>
             </div>
           </div>
         </div>
@@ -73,7 +76,7 @@
         return this.$root.quizzes.push(quiz)
       },
       clearQuiz() {
-        this.quiz = { questions: [] }
+        this.quiz = {questions: []}
       }
     },
 
@@ -87,6 +90,7 @@
   .row, .card {
     margin-top: 15px;
   }
+
   .actions, .card-header {
     display: flex;
     align-items: center;
