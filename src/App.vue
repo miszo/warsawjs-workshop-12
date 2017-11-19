@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div>{{ msg }}</div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
+      <h2>{{ msg }}</h2>
     </nav>
     <div>
       <quiz v-bind:quizzes="quizzes"/>
@@ -27,6 +27,8 @@
   }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  .navbar-expand-lg {
+    justify-content: center;
+  }
 </style>

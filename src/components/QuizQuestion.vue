@@ -1,11 +1,11 @@
 <template>
   <div class="card">
-    <div class="card-header text-center">
+    <h4 class="card-header text-center">
       {{ question.text }}
-    </div>
+    </h4>
     <div class="card-body">
       <div class="card-text answers row">
-        <button v-for="(answer, index) in question.answers" class="btn btn-light col-sm-6"
+        <button v-for="(answer, index) in question.answers" class="btn btn-block btn-outline-primary"
                 v-on:click="checkAnswer(index)">{{ answer }}
         </button>
       </div>
@@ -24,10 +24,10 @@
     methods: {
       checkAnswer(index) {
         if (index === this.question.correctAnswerIndex) {
-          this.$emit('correctAnswer');
+          this.$emit('selectedCorrectAnswer');
         }
         else {
-          this.$emit('wrongAnswer');
+          this.$emit('selectedWrongAnswer');
         }
       }
     }
@@ -40,7 +40,6 @@
   }
 
   .btn {
-    color: #423b9f;
-    border: 1px solid #423b9f;
+    margin: 1%;
   }
 </style>

@@ -1,15 +1,26 @@
 <template>
   <div class="container" v-if="status === 'playing'">
-    <h1>Pytanie #{{ currentQuestionIndex + 1 }}</h1>
-    <quiz-question v-bind:question="currentQuestion"
-                   v-on:correctAnswer="nextQuestion()"
-                   v-on:wrongAnswer="lost()"></quiz-question>
+    <div class="row">
+      <div class="col-sm-4">
+        <ul class="list-group">
+          <li class="list-group-item"
+              v-for="(question, index) in questions"
+              v-bind:class="{ active: index === currentQuestionIndex }">Pytanie #{{ index + 1 }}</li>
+        </ul>
+      </div>
+      <div class="col-sm-8">
+        <h3>Pytanie #{{ currentQuestionIndex + 1 }}</h3>
+        <quiz-question v-bind:question="currentQuestion"
+                       v-on:selectedCorrectAnswer="nextQuestion()"
+                       v-on:selectedWrongAnswer="lost()"/>
+      </div>
+    </div>
   </div>
   <div class="container" v-else>
     <div class="card">
-      <div class="card-header text-center">
+      <h3 class="card-header text-center">
         Koniec gry
-      </div>
+      </h3>
       <div class="card-body">
         <div class="card-text" >
           <div v-if="status === 'won'" class="alert alert-success" role="alert">
@@ -66,7 +77,7 @@
       },
       playAgain() {
         this.status = 'playing';
-        this.question = randomElement(this.quizzes).questions
+        this.questions = randomElement(this.quizzes).questions;
         this.currentQuestionIndex = 0;
       }
     }
