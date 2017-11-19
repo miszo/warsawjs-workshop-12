@@ -52,15 +52,13 @@
     },
     data() {
       return {
+        questions: randomElement(this.$store.state.quizzes).questions,
         currentQuestionIndex: 0,
         status: 'playing'
       }
     },
 
     computed: {
-      questions() {
-        return randomElement(this.$store.state.quizzes).questions
-      },
       currentQuestion() {
         return this.questions[this.currentQuestionIndex]
       }
@@ -82,9 +80,13 @@
       },
       playAgain() {
         this.status = 'playing';
-        this.questions = randomElement(this.$root.quizzes).questions;
+        this.questions = randomElement(this.$store.state.quizzes).questions;
         this.currentQuestionIndex = 0;
       }
+    },
+
+    created() {
+      this.questions = randomElement(this.$store.state.quizzes).questions;
     }
   };
 </script>
