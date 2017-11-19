@@ -5,8 +5,9 @@
     </h4>
     <div class="card-body">
       <div class="card-text answers row">
-        <button v-for="(answer, index) in question.answers" class="btn btn-block btn-outline-primary"
-                v-on:click="checkAnswer(index)">{{ answer }}
+        <button v-for="(answer, index) in question.answers" class="btn btn-block btn-outline-primary text-left"
+                v-on:click="checkAnswer(index)">
+          <span class="font-weight-bold">{{ String.fromCharCode(65 + index) }}.</span> {{ answer }}
         </button>
       </div>
     </div>
