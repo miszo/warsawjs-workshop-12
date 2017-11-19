@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 
-import quizzes from './quizzes.json';
 import router from './router';
+import store from './store';
 
 Vue.mixin({
   methods: {
@@ -15,8 +15,6 @@ Vue.mixin({
 new Vue({
   el: '#app',
   router,
-  render: h => h(App),
-  data: {
-    quizzes: quizzes.quizzes
-  }
+  store,
+  render: h => h(App)
 });

@@ -43,6 +43,8 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
+
   export default {
     name: 'CreateQuiz',
     data() {
@@ -69,12 +71,11 @@
       removeQuestion(index) {
         return this.quiz.questions.splice(index, 1);
       },
-      addQuiz(quiz) {
-        return this.$root.quizzes.push(quiz)
-      },
       clearQuiz() {
         this.quiz = {questions: []}
-      }
+      },
+
+      ...mapMutations(['addQuiz'])
     },
 
     created() {
