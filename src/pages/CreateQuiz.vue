@@ -39,9 +39,6 @@
     <div class="row">
       <router-link class="btn btn-link" to="/">Powrót do strony głównej</router-link>
     </div>
-    <pre>
-      {{ $data }}
-    </pre>
   </div>
 </template>
 
