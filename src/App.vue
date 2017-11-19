@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import Quiz from './Quiz';
+  import Quiz from './components/Quiz';
   import quizzes from './quizzes.json';
 
   export default {
