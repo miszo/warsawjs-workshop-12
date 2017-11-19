@@ -9,10 +9,9 @@
         </ul>
       </div>
       <div class="col-sm-8">
-        <h3>Pytanie #{{ currentQuestionIndex + 1 }}</h3>
         <quiz-question v-bind:question="currentQuestion"
                        v-on:selectedCorrectAnswer="nextQuestion()"
-                       v-on:selectedWrongAnswer="lost()"/>
+                       v-on:selectedWrongAnswer="loose()"/>
       </div>
     </div>
   </div>
@@ -65,15 +64,14 @@
         if (this.questions.length > this.currentQuestionIndex + 1) {
           this.currentQuestionIndex += 1;
         } else {
-          this.won();
+          this.win();
         }
       },
-      won() {
+      win() {
         this.status = 'won';
       },
-      lost() {
+      loose() {
         this.status = 'lost';
-
       },
       playAgain() {
         this.status = 'playing';
